@@ -1,6 +1,8 @@
 package com.application.stock.easystocksbackend.controller;
 
+import com.application.stock.easystocksbackend.dao.LoginUserDao;
 import com.application.stock.easystocksbackend.dto.UserDTO;
+import com.application.stock.easystocksbackend.model.LoginUser;
 import com.application.stock.easystocksbackend.model.User;
 import com.application.stock.easystocksbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +19,26 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private LoginUserDao loginUserDao;
 //    @RequestMapping(value = "/getAllUsers",method = RequestMethod.GET)
 //    public ResponseEntity<List<User>> getAllUser(){
 //        List<User> users=this.userService.getAllUser();
 //        return new ResponseEntity<>(users, HttpStatus.OK);
 //    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginUser> loginUser(@RequestBody LoginUser userData){
+        System.out.println(userData);
+        LoginUser loginUser=loginUserDao.findByUserId(userData.getUserId());
+        if(loginUser.getPassword().equals(userData.getPassword())){
+            return ResponseEntity.ok(loginUser);
+        }else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//            return (ResponseEntity<LoginUser>) ResponseEntity.internalServerError();
+        }
+
+    }
 
     @RequestMapping(value = "/getAllUsers",method = RequestMethod.GET)
     public ResponseEntity<List<UserDTO>> getAllUser(){
