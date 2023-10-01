@@ -5,7 +5,6 @@ import com.application.stock.easystocksbackend.dto.UserDTO;
 import com.application.stock.easystocksbackend.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
