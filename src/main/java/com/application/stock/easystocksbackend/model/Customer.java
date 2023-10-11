@@ -11,6 +11,8 @@ public class Customer {
     private String customerCode;
     @Column(name = "cus_name")
     private String customerName;
+    @Column(name = "contact_person")
+    private String CustomerContactPerson;
     @Column(name = "mobile")
     private String customerMobile;
     @Column(name = "email")
@@ -36,6 +38,14 @@ public class Customer {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public String getCustomerContactPerson() {
+        return CustomerContactPerson;
+    }
+
+    public void setCustomerContactPerson(String customerContactPerson) {
+        CustomerContactPerson = customerContactPerson;
     }
 
     public String getCustomerMobile() {

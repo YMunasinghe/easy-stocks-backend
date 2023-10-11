@@ -9,6 +9,7 @@ public class CustomerDTO {
 
     private String customerCode;
     private String customerName;
+    private String customerContactPerson;
     private String customerMobile;
     private String customerEmail;
     private String customerAddress;
@@ -21,6 +22,7 @@ public class CustomerDTO {
     public CustomerDTO(Customer customer) {
         this.customerCode = customer.getCustomerCode();
         this.customerName = customer.getCustomerName();
+        this.customerContactPerson=customer.getCustomerContactPerson();
         this.customerMobile = customer.getCustomerMobile();
         this.customerEmail = customer.getCustomerEmail();
         this.customerAddress = customer.getCustomerAddress();
@@ -42,6 +44,14 @@ public class CustomerDTO {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public String getCustomerContactPerson() {
+        return customerContactPerson;
+    }
+
+    public void setCustomerContactPerson(String customerContactPerson) {
+        this.customerContactPerson = customerContactPerson;
     }
 
     public String getCustomerMobile() {

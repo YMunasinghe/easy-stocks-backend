@@ -26,4 +26,27 @@ public class CustomerService {
         }
         return customerDTOs;
     }
+
+//    public CustomerDTO findByCustomerName(String customerName){
+//        Customer customer = this.customerDao.findByCustomerName(customerName);
+//        CustomerDTO customerDTO1 = new CustomerDTO(customer);
+//
+//        return customerDTO1;
+//    }
+
+    public List<CustomerDTO> getCustomerByName(String customerName){
+        List<Customer> customers=this.customerDao.findByCustomerNameContainingIgnoreCase(customerName);
+
+        List<CustomerDTO> customerDTOs =new ArrayList<>();
+        for(Customer customer:customers){
+            CustomerDTO customerDTO=new CustomerDTO(customer);
+            customerDTOs.add(customerDTO);
+        }
+        return customerDTOs;
+    }
+
+    public Customer addStudent(Customer customer){
+        Customer customer1 =this.customerDao.saveAndFlush(customer);
+        return customer1;
+    }
 }
