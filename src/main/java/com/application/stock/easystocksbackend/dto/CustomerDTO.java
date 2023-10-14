@@ -14,7 +14,9 @@ public class CustomerDTO {
     private String customerEmail;
     private String customerAddress;
     private String customerCreatedDate;
+    private String customerCreatedTime;
     private String customerUpdatedDate;
+    private String customerUpdatedTime;
 
     public CustomerDTO() {
     }
@@ -27,7 +29,9 @@ public class CustomerDTO {
         this.customerEmail = customer.getCustomerEmail();
         this.customerAddress = customer.getCustomerAddress();
         this.customerCreatedDate = customer.getCustomerCreatedDate();
+        this.customerCreatedTime = customer.getCustomerCreatedTime();
         this.customerUpdatedDate = customer.getCustomerUpdatedDate();
+        this.customerUpdatedTime = customer.getCustomerUpdatedTime();
     }
 
     public String getCustomerCode() {
@@ -92,5 +96,21 @@ public class CustomerDTO {
 
     public void setCustomerUpdatedDate(String customerUpdatedDate) {
         this.customerUpdatedDate = customerUpdatedDate;
+    }
+
+    public String getCustomerCreatedTime() {
+        return customerCreatedTime;
+    }
+
+    public void setCustomerCreatedTime(String customerCreatedTime) {
+        this.customerCreatedTime = customerCreatedTime;
+    }
+
+    public String getCustomerUpdatedTime() {
+        return customerUpdatedTime;
+    }
+
+    public void setCustomerUpdatedTime(String customerUpdatedTime) {
+        this.customerUpdatedTime = customerUpdatedTime;
     }
 }

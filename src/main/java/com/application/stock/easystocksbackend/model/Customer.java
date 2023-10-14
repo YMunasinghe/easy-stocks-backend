@@ -21,8 +21,12 @@ public class Customer {
     private String customerAddress;
     @Column(name = "created_date")
     private String customerCreatedDate;
+    @Column(name = "created_time")
+    private String customerCreatedTime;
     @Column(name = "updated_date")
     private String customerUpdatedDate;
+    @Column(name = "updated_time")
+    private String customerUpdatedTime;
 
     public String getCustomerCode() {
         return customerCode;
@@ -86,5 +90,21 @@ public class Customer {
 
     public void setCustomerUpdatedDate(String customerUpdatedDate) {
         this.customerUpdatedDate = customerUpdatedDate;
+    }
+
+    public String getCustomerCreatedTime() {
+        return customerCreatedTime;
+    }
+
+    public void setCustomerCreatedTime(String customerCreatedTime) {
+        this.customerCreatedTime = customerCreatedTime;
+    }
+
+    public String getCustomerUpdatedTime() {
+        return customerUpdatedTime;
+    }
+
+    public void setCustomerUpdatedTime(String customerUpdatedTime) {
+        this.customerUpdatedTime = customerUpdatedTime;
     }
 }

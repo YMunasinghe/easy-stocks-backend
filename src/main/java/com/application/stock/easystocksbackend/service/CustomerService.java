@@ -46,7 +46,6 @@ public class CustomerService {
     }
 
     public Customer addStudent(Customer customer){
-        Customer customer1 =this.customerDao.saveAndFlush(customer);
-        return customer1;
+        return this.customerDao.saveAndFlush(customer);
     }
 }
