@@ -1,0 +1,41 @@
+package com.application.stock.easystocksbackend.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="t_product_category")
+public class ProductCategory {
+
+    @Id
+    @Column(name="category_code", nullable = false, updatable = false)
+    private Integer productCategoryCode;
+    @Column(name = "category_name")
+    private String productCategoryName;
+
+    public ProductCategory() {
+    }
+
+    public ProductCategory(Integer productCategoryCode, String productCategoryName) {
+        this.productCategoryCode = productCategoryCode;
+        this.productCategoryName = productCategoryName;
+    }
+
+    public Integer getProductCategoryCode() {
+        return productCategoryCode;
+    }
+
+    public void setProductCategoryCode(Integer productCategoryCode) {
+        this.productCategoryCode = productCategoryCode;
+    }
+
+    public String getProductCategoryName() {
+        return productCategoryName;
+    }
+
+    public void setProductCategoryName(String productCategoryName) {
+        this.productCategoryName = productCategoryName;
+    }
+}
