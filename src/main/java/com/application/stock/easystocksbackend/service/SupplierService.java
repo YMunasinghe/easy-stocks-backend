@@ -39,7 +39,24 @@ public class SupplierService {
         return supplierDTOs;
     }
 
-    public Supplier addSupplier(Supplier supplier){
-        return this.supplierDao.saveAndFlush(supplier);
+//    public Supplier addSupplier(Supplier supplier){
+//        return this.supplierDao.saveAndFlush(supplier);
+//    }
+    public SupplierDTO addSupplier(SupplierDTO supplierDTO) {
+        Supplier supplier = new Supplier();
+
+        supplier.setSupplierCode(supplierDTO.getSupplierCode());
+        supplier.setSupplierName(supplierDTO.getSupplierName());
+        supplier.setSupplierMobile(supplierDTO.getSupplierMobile());
+        supplier.setSupplierEmail(supplierDTO.getSupplierEmail());
+        supplier.setSupplierAddress(supplierDTO.getSupplierAddress());
+        supplier.setSupplierCreatedDate(supplierDTO.getSupplierCreatedDate());
+        supplier.setSupplierUpdatedDate(supplierDTO.getSupplierUpdatedDate());
+        supplier.setSupplierContactPerson(supplierDTO.getSupplierContactPerson());
+        supplier.setSupplierCreatedTime(supplierDTO.getSupplierCreatedTime());
+        supplier.setSupplierUpdatedTime(supplierDTO.getSupplierUpdatedTime());
+
+        supplier = this.supplierDao.saveAndFlush(supplier);
+        return new SupplierDTO(supplier);
     }
 }

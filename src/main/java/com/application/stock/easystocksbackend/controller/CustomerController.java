@@ -1,8 +1,6 @@
 package com.application.stock.easystocksbackend.controller;
 
 import com.application.stock.easystocksbackend.dto.CustomerDTO;
-import com.application.stock.easystocksbackend.dto.UserDTO;
-import com.application.stock.easystocksbackend.model.Customer;
 import com.application.stock.easystocksbackend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 @RestController
@@ -41,9 +38,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/addCustomer", method = RequestMethod.POST)
-    public ResponseEntity<Customer> addStudent(@RequestBody Customer customer) {
-        //Student student1 = studentService.getStudentById(student.getStudentID());
-        Customer newCustomer = this.customerService.addStudent(customer);
+    public ResponseEntity<CustomerDTO> addCustomer(@RequestBody CustomerDTO customer) {
+        CustomerDTO newCustomer = this.customerService.addCustomer(customer);
         return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);
     }
 }

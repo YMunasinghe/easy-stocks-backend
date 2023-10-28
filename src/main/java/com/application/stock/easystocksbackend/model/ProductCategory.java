@@ -1,15 +1,13 @@
 package com.application.stock.easystocksbackend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="t_product_category")
 public class ProductCategory {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="category_code", nullable = false, updatable = false)
     private Integer productCategoryCode;
     @Column(name = "category_name")

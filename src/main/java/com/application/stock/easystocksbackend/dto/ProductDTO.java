@@ -9,6 +9,7 @@ public class ProductDTO {
     private String itemName;
     private String itemDescription;
     private Integer categoryCode;
+    private String categoryName;
 
     public ProductDTO() {
     }
@@ -17,7 +18,16 @@ public class ProductDTO {
         this.itemCode = product.getItemCode();
         this.itemName = product.getItemName();
         this.itemDescription = product.getItemDescription();
-        this.categoryCode = product.getCategoryCode();
+//        this.categoryCode = product.getCategoryCode();
+
+        /**
+         * If there is no product category to a product
+         *  there is a possibility to occur an exception
+         */
+        if (product.getProductCategory()!=null){
+            this.categoryCode = product.getProductCategory().getProductCategoryCode();
+            this.categoryName = product.getProductCategory().getProductCategoryName();
+        }
     }
 
     public String getItemCode() {
@@ -50,5 +60,13 @@ public class ProductDTO {
 
     public void setCategoryCode(Integer categoryCode) {
         this.categoryCode = categoryCode;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }

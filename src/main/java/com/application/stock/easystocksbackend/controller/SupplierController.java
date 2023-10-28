@@ -36,9 +36,9 @@ public class SupplierController {
     }
 
     @RequestMapping(value = "/addSupplier", method = RequestMethod.POST)
-    public ResponseEntity<Supplier> addSupplier(@RequestBody Supplier supplier) {
+    public ResponseEntity<SupplierDTO> addSupplier(@RequestBody SupplierDTO supplier) {
         //Student student1 = studentService.getStudentById(student.getStudentID());
-        Supplier newSupplier = this.supplierService.addSupplier(supplier);
+        SupplierDTO newSupplier = this.supplierService.addSupplier(supplier);
         return new ResponseEntity<>(newSupplier, HttpStatus.CREATED);
     }
 }

@@ -1,9 +1,6 @@
 package com.application.stock.easystocksbackend.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "t_product")
@@ -16,15 +13,19 @@ public class Product {
     private String itemName;
     @Column(name = "item_description")
     private String itemDescription;
-    @Column(name = "category_code")
-    private Integer categoryCode;
+//    @Column(name = "category_code")
+//    private Integer categoryCode;
 
-    public Product(String itemCode, String itemName, String itemDescription, Integer categoryCode) {
-        this.itemCode = itemCode;
-        this.itemName = itemName;
-        this.itemDescription = itemDescription;
-        this.categoryCode = categoryCode;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_code")
+    private ProductCategory productCategory;
+
+//    public Product(String itemCode, String itemName, String itemDescription, Integer categoryCode) {
+//        this.itemCode = itemCode;
+//        this.itemName = itemName;
+//        this.itemDescription = itemDescription;
+////        this.categoryCode = categoryCode;
+//    }
 
     public Product() {
     }
@@ -53,11 +54,19 @@ public class Product {
         this.itemDescription = itemDescription;
     }
 
-    public Integer getCategoryCode() {
-        return categoryCode;
+//    public Integer getCategoryCode() {
+//        return categoryCode;
+//    }
+//
+//    public void setCategoryCode(Integer categoryCode) {
+//        this.categoryCode = categoryCode;
+//    }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
     }
 
-    public void setCategoryCode(Integer categoryCode) {
-        this.categoryCode = categoryCode;
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
     }
 }

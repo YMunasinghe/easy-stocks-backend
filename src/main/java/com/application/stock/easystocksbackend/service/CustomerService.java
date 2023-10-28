@@ -45,7 +45,21 @@ public class CustomerService {
         return customerDTOs;
     }
 
-    public Customer addStudent(Customer customer){
-        return this.customerDao.saveAndFlush(customer);
+    public CustomerDTO addCustomer(CustomerDTO customerDTO){
+        Customer customer=new Customer();
+
+        customer.setCustomerCode(customerDTO.getCustomerCode());
+        customer.setCustomerName(customerDTO.getCustomerName());
+        customer.setCustomerMobile(customerDTO.getCustomerMobile());
+        customer.setCustomerEmail(customerDTO.getCustomerEmail());
+        customer.setCustomerAddress(customerDTO.getCustomerAddress());
+        customer.setCustomerCreatedDate(customerDTO.getCustomerCreatedDate());
+        customer.setCustomerUpdatedDate(customerDTO.getCustomerUpdatedDate());
+        customer.setCustomerContactPerson(customerDTO.getCustomerContactPerson());
+        customer.setCustomerCreatedTime(customerDTO.getCustomerCreatedTime());
+        customer.setCustomerUpdatedTime(customerDTO.getCustomerUpdatedTime());
+
+        customer=this.customerDao.saveAndFlush(customer);
+        return new CustomerDTO(customer);
     }
 }
